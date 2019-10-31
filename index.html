@@ -1,0 +1,45 @@
+<!Doctype html>
+<html ng-app ="factsAboutMe">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script 
+      type="text/javascript"
+      src="app.js"
+    >  
+    </script>
+    <link rel="stylesheet" href="app.css">
+  </head>
+  <body>
+    <div class="main" ng-controller="FactsController">
+      <div class="title">
+        <h1>Facts About Jajuan</h1>
+        <div class="formBox">
+          <div class="">
+            <div class="">
+              <label>First Name:</label>
+              <input type="text" placeholder="{{firstName ? 'Username' : 'Ad Login'}}" ng-model="firstName" />  
+            </div>
+            <div class="">
+              <label>Last Name:</label>
+              <input type="text"placeholder="John Doe" ng-model="lastName" /> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="factBox">
+        <div class="fact">
+          {{fact}}
+        </div>
+        <div class="buttonBox">
+          <div class="buttonContainer">
+            <div class="button" ng-click="newFact($event)">Get New Fact</div>
+            <div class="button" ng-click="saveFact($event)">Save Fact</div>
+          </div>
+          <div class="">
+            {{savedFacts }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

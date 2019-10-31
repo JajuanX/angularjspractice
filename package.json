@@ -1,0 +1,19 @@
+{
+  "name": "angularpractice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "angular": "^1.7.8",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "unirest": "^0.6.0"
+  },
+  "devDependencies": {},
+  "proxy": "http://localhost:8080",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
