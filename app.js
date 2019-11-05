@@ -4,6 +4,8 @@ factsAboutMe.controller('FactsController', ['$scope','$http','$filter',($scope, 
 $scope.firstName = "Jajuan"
 $scope.lastName = "X"
 $scope.savedFacts = []
+$scope.key = 0
+
 
   let getFact = () => {
     $http.get('https://api.chucknorris.io/jokes/random')
@@ -16,12 +18,6 @@ $scope.savedFacts = []
     )
   }
 
-  let savedFact = () => {
-    $scope.savedFacts = $filter('filter')($scope.fact)
-
-    console.log($scope.savedFacts);
-  }
-
   getFact()
 
   $scope.newFact = () => {
@@ -29,7 +25,12 @@ $scope.savedFacts = []
   }
 
   $scope.saveFact = () => {
-    savedFact()
+    if (($scope.savedFacts.length === 0)) {
+     return $scope.savedFacts.push({ fact: $scope.fact, key: 0})
+    } else if ($scope.fact !== $scope.savedFacts[$scope.savedFacts.length - 1].fact) {
+        $scope.savedFacts.push({ fact: $scope.fact, key: ++$scope.key })
+     };
+    console.log($scope.savedFacts);
   }
 
 

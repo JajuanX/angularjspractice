@@ -2,10 +2,10 @@
 <html ng-app ="factsAboutMe">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-    <script 
+    <script
       type="text/javascript"
       src="app.js"
-    >  
+    >
     </script>
     <link rel="stylesheet" href="app.css">
   </head>
@@ -15,17 +15,18 @@
         <h1>Facts About Jajuan</h1>
         <div class="formBox">
           <div class="">
-            <div class="">
+            <div class="firstName">
               <label>First Name:</label>
-              <input type="text" placeholder="{{firstName ? 'Username' : 'Ad Login'}}" ng-model="firstName" />  
+              <input type="text" ng-model="firstName" />
             </div>
-            <div class="">
+            <div class="lastName">
               <label>Last Name:</label>
-              <input type="text"placeholder="John Doe" ng-model="lastName" /> 
+              <input type="text" ng-model="lastName" />
             </div>
           </div>
         </div>
       </div>
+
       <div class="factBox">
         <div class="fact">
           {{fact}}
@@ -35,11 +36,12 @@
             <div class="button" ng-click="newFact($event)">Get New Fact</div>
             <div class="button" ng-click="saveFact($event)">Save Fact</div>
           </div>
-          <div class="">
-            {{savedFacts }}
+          <div ng-show="savedFacts.length > 0" class="allFacts">
+            <div ng-repeat="fact in savedFacts">{{ fact.fact  }}</div>
           </div>
         </div>
       </div>
+
     </div>
   </body>
 </html>
